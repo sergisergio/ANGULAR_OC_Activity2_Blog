@@ -1,27 +1,10 @@
-# AngularBlog2
+## exercise "Implémentez l'ajout des posts dans votre blog" from [Openclassrooms](http://exercices.openclassrooms.com/assessment/733?id=4668271&slug=developpez-des-applications-web-avec-angular&login=7018443&tk=ce208bf8601d0b2f8c14aa78081463fa&sbd=2016-02-01&sbdtk=2466d6bae51e373d89ac8e3f74213199)  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+### Create a service for posts (array of posts, emit theme as Subject, add a new post, remove a post).
 
-## Development server
+### Add a remove button on each PostListItemComponent  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Add a navbar with routing to posts and to a new post
 
-## Code scaffolding
+### The service must count the number of loveIts.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
