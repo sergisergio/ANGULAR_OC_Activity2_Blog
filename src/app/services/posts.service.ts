@@ -3,7 +3,9 @@ import { Subject } from 'rxjs/Subject';
 import { Post } from '../models/post.model'
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class PostsService {
 
     postsSubject = new Subject<any[]>();
@@ -46,5 +48,16 @@ export class PostsService {
 
     emitPostSubject() {
         this.postsSubject.next(this.posts.slice())
+    }
+
+    createNewPost(newPost: Post) {
+        this.posts.push(newPost);
+        //this.savePosts();
+        this.emitPostSubject();
+      }
+
+    removePost(post: Post) {
+        this.posts.splice(this.posts.findIndex(postObj => postObj === post), 1)
+        this.emitPostSubject()
     }
 }

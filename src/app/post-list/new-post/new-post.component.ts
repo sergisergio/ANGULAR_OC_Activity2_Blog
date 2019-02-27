@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostsService } from '../../services/posts.service';
 import { Router } from '@angular/router';
+import { Post } from '../../models/post.model'
 
 @Component({
   selector: 'app-new-post',
@@ -12,8 +13,10 @@ export class NewPostComponent implements OnInit {
 
   postForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private postsService: PostsService,
-              private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private postsService: PostsService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -29,8 +32,8 @@ export class NewPostComponent implements OnInit {
   onSavePost() {
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
-    //const newPost = new Book(title, author);
-    //this.postsService.createNewPost(newPost);
-    //this.router.navigate(['/posts']);
+    const newPost = new Post(title, content, 0);
+    this.postsService.createNewPost(newPost);
+    this.router.navigate(['/posts']);
   }
 }
