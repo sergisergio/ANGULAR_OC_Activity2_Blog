@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.posts = this.postsService.posts;
+        //this.posts = this.postsService.posts;
     }
 }
