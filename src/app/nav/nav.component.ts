@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-
+    console.log('test');
     const searchPosts = this.postsService.search(form.value['word']);
     if (searchPosts) {
       console.log(searchPosts);

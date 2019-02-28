@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PostsService } from './services/posts.service';
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs/Subscription';
+import { Post } from './models/post.model';
 
 @Component({
 selector: 'app-root',
@@ -9,11 +10,16 @@ styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
+
     posts: any[];
 
     constructor(private postsService: PostsService) {}
 
     ngOnInit() {
         //this.posts = this.postsService.posts;
+    }
+
+    search($event) {
+        if ($event) this.posts = $event;
     }
 }
