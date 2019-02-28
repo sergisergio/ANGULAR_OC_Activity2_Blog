@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PostsService } from '../../services/posts.service'
+import { PostsService } from '../../services/posts.service';
 import { Post } from '../../models/post.model'
 
 @Component({
@@ -34,7 +34,5 @@ export class PostListItemComponent implements OnInit {
   onNoLike(post: Post) {
     this.postsService.noLikePost(post)
   }
-
-
 
 }
