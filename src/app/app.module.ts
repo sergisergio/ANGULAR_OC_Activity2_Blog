@@ -10,6 +10,7 @@ import { NewPostComponent } from './post-list/new-post/new-post.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
 import { PostsService } from './services/posts.service';
+import { FourofourComponent } from './fourofour/fourofour.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PostsService } from './services/posts.service';
     PostListItemComponent,
     NewPostComponent,
     NavComponent,
-    SearchComponent
+    SearchComponent,
+    FourofourComponent
   ],
   imports: [
     BrowserModule,
