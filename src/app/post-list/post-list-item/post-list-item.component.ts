@@ -15,8 +15,6 @@ export class PostListItemComponent implements OnInit {
   @Input() loveIts: number;
   @Input() post: Post;
 
-  //loveIts = 0;
-
   constructor(private postsService: PostsService) { }
 
   ngOnInit() {
@@ -36,5 +34,7 @@ export class PostListItemComponent implements OnInit {
   onNoLike(post: Post) {
     this.postsService.noLikePost(post)
   }
+
+
 
 }

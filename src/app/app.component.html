@@ -1,10 +1,2 @@
-<app-nav></app-nav>
-<div style="text-align:center">
-  <h1>
-    Posts
-  </h1>
-</div>
-<div class="container">
-<!--<app-post-list [posts]="posts"></app-post-list>-->
-  <router-outlet></router-outlet>
-</div>
+<app-nav (searchPosts)="search($event)"></app-nav>
+<router-outlet></router-outlet>

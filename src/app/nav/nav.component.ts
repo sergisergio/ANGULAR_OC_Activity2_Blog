@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { PostsService } from '../services/posts.service';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  @Output() searchPosts: EventEmitter<Post[]> = new EventEmitter();
+
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form: NgForm): void {
+
+    const searchPosts = this.postsService.search(form.value['word']);
+    if (searchPosts) {
+      console.log(searchPosts);
+      this.searchPosts.emit(searchPosts);
+    }
   }
 
 }

@@ -11,9 +11,7 @@ export class AppComponent implements OnInit {
 
     posts: any[];
 
-    constructor(private postsService: PostsService) {
-
-    }
+    constructor(private postsService: PostsService) {}
 
     ngOnInit() {
         //this.posts = this.postsService.posts;

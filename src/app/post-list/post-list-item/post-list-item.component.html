@@ -3,18 +3,18 @@
                       'list-group-item-danger': loveIts <0 }">
   <div class="row">
     <div class="col-md-12">
-      <h2>Titre : {{ title }}<small style="float: right;font-size: 16px !important;">{{ createdAt }}</small></h2>
+      <h2>{{ title }}<small style="float: right;font-size: 16px !important;">{{ createdAt }}</small></h2>
     </div>
     <hr>
     <div class="col-md-12">
-    <p>Content : {{ content }}</p>
+    <p>{{ content }}</p>
     </div>
   </div>
   <div class="row justify-content-between">
     <div class="col-md-4">
       <button class="btn btn-success" (click)="onLike(post)"><i class="fa fa-thumbs-up"></i></button>
       <button style="margin-left: 10px;" class="btn btn-danger" (click)="onNoLike(post)"><i class="fa fa-thumbs-down"></i></button>
-      <p>{{ loveIts }}</p>
+      <span class="badge badge-secondary" style="margin-left: 10px;">{{ loveIts }} <i class="fa fa-heart-o"></i></span>
     </div>
       <div class="col-md-3">
           <button class="btn btn-danger" name="remove" (click)="onDelete(post)">Supprimer</button>
