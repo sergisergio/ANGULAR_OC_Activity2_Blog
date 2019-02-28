@@ -9,12 +9,13 @@ import { Post } from '../../models/post.model'
 })
 export class PostListItemComponent implements OnInit {
 
-  @Input() postTitle: Post
-  @Input() postContent: Post
-  @Input() postCreatedAt: Post
-  @Input() index: Post
+  @Input() title: string
+  @Input() content: string
+  @Input() createdAt: Date
+  @Input() loveIts: number;
+  @Input() post: Post;
 
-  loveIts = 0;
+  //loveIts = 0;
 
   constructor(private postsService: PostsService) { }
 
@@ -22,7 +23,18 @@ export class PostListItemComponent implements OnInit {
   }
 
   onDelete(post: Post) {
-    this.postsService.removePost(post)
+    let confirmDelete = confirm('Confirmez la suppression de ce post SVP !');
+    if (confirmDelete) {
+      this.postsService.removePost(post);
+    }
+  }
+
+  onLike(post: Post) {
+    this.postsService.likePost(post);
+  }
+
+  onNoLike(post: Post) {
+    this.postsService.noLikePost(post)
   }
 
 }
