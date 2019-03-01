@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { PostsService } from '../services/posts.service';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-post-list',
@@ -9,27 +10,34 @@ import { PostsService } from '../services/posts.service';
 })
 export class PostListComponent implements OnInit, OnDestroy {
 
-  posts: any[];
-  postsSubscription: Subscription;
+  posts: Post[];
 
+  postsSubscription: Subscription;
 
   constructor(private postsService: PostsService) { }
 
   ngOnInit() {
     //this.loadPosts();
     this.postsSubscription = this.postsService.postsSubject.subscribe(
-      (posts: Array<object>) => {
-        this.posts = posts.reverse()
+      (posts: Post[]) => {
+        this.posts = posts.reverse();
       }
-    )
+    );
+    this.postsService.getPosts();
     this.postsService.emitPostSubject()
   }
 
-  loadPosts() {
+  /*loadPosts() {
 
     this.posts = this.postsService.getPosts();
     //this.postsService.getPosts();
     console.log(this.posts);
+  }*/
+
+  search($event) {
+    console.log($event);
+    console.log('prout');
+    if ($event) this.posts = $event;
   }
 
   ngOnDestroy() {

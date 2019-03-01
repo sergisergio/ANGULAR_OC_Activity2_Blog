@@ -1,8 +1,10 @@
+<app-nav (searchPosts)="search($event)"></app-nav>
 <div class="row justify-content-center">
   <div class="col-md-8">
     <h1 class="text-center">Articles</h1>
     <ul class="list-group">
-      <app-post-list-item  *ngFor="let post of posts; "
+      <app-post-list-item  *ngFor="let post of posts; let i = index "
+                                  [index]=i
                                   [title]="post.title"
                                   [content]="post.content"
                                   [createdAt]="post.created_at | date: 'dd/MM/yyyy, hh:mm a'"

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
-import { Post } from '../../models/post.model'
+import { Post } from '../../models/post.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list-item',
@@ -9,13 +10,14 @@ import { Post } from '../../models/post.model'
 })
 export class PostListItemComponent implements OnInit {
 
+  @Input() index: number
   @Input() title: string
   @Input() content: string
   @Input() createdAt: Date
   @Input() loveIts: number;
   @Input() post: Post;
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -33,6 +35,11 @@ export class PostListItemComponent implements OnInit {
 
   onNoLike(post: Post) {
     this.postsService.noLikePost(post)
+  }
+
+  onViewPost() {
+    console.log(this.post);
+    this.router.navigate(['/posts', 'view', this.index]);
   }
 
 }

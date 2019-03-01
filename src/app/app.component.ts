@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { PostsService } from './services/posts.service';
-import { Subscription } from 'rxjs/Subscription';
+import * as firebase from 'firebase';
 
 @Component({
 selector: 'app-root',
@@ -9,15 +8,19 @@ styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
-    posts: any[];
-
-    constructor(private postsService: PostsService) {}
+    constructor() {
+        var config = {
+            apiKey: "AIzaSyC78qnJdTlhoGPkDUitJo488FJGL1MXUmw",
+            authDomain: "angular-blog2.firebaseapp.com",
+            databaseURL: "https://angular-blog2.firebaseio.com",
+            projectId: "angular-blog2",
+            storageBucket: "angular-blog2.appspot.com",
+            messagingSenderId: "921080783067"
+          };
+          firebase.initializeApp(config);
+        }
 
     ngOnInit() {
         //this.posts = this.postsService.posts;
-    }
-
-    search($event) {
-        if ($event) this.posts = $event;
     }
 }

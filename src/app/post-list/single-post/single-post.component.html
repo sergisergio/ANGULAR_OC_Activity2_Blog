@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+  <div *ngIf="post" class="col-md-8">
+    test
+    <h1>{{ post.title }}</h1>
+    <h3>{{ post.content }}</h3>
+    <p></p>
+    <button class="btn btn-default" (click)="onBack()">Retour</button>
+  </div>
+</div>
